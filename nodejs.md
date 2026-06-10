@@ -1536,6 +1536,7 @@ Production process manager for Node.js
 ុង Node.js។
 
 Example
+```javascript
 const express = require('express');
 const app = express();
 app.use(express.json());
@@ -1545,6 +1546,7 @@ app.post('/login', (req, res) => {
   else res.status(401).json({ error: 'Invalid credentials' });
 });
 app.listen(3000);
+```
 Explanation:
 កូដនេះបង្កើត endpoint `/login` សម្រាប់ផ្ទៀងផ្ទាត់អ្នកប្រើ។ ប្រសិនបើ username និង password ត្រឹមត្រូវ វាផ្តល់ token។
 
@@ -1578,6 +1580,7 @@ Manage user sessions and cookies in Node.js.
 គ្រប់គ្រង sessions និង cookies របស់អ្នកប្រើនៅក្នុង Node.js។
 
 Example
+```javascript
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -1587,6 +1590,7 @@ app.get('/', (req, res) => {
   res.send('Cookie set');
 });
 app.listen(3000);
+```
 Explanation:
 កូដនេះប្រើ `cookie-parser` ដើម្បីកំណត់ cookie `name` ជាមួយតម្លៃ 'John'។
 
@@ -1619,12 +1623,14 @@ Secure APIs with Helmet, rate limiting, and CORS.
 ការពារ APIs ដោយប្រើ Helmet, rate limiting, និង CORS។
 
 Example
+```javascript
 const express = require('express');
 const helmet = require('helmet');
 const app = express();
 app.use(helmet());
 app.get('/', (req, res) => res.send('Secure API'));
 app.listen(3000);
+```
 Explanation:
 កូដនេះប្រើ `helmet` ដើម្បីបន្ថែម headers សុវត្ថិភាពទៅ API។
 
@@ -1664,8 +1670,10 @@ Run external processes using child_process module.
 ដំណើរការដំណើរការខាងក្រៅដោយប្រើម៉ូឌុល child_process។
 
 Example
+```javascript
 const { exec } = require('child_process');
 exec('ls', (err, stdout) => console.log(stdout));
+```
 Explanation:
 កូដនេះប្រើ `exec` ដើម្បីដំណើរការពាក្យបញ្ជា `ls` និងបង្ហាញឈ្មោះឯកសារនៅក្នុងថត។
 
@@ -1682,12 +1690,14 @@ Scale applications using worker threads and clustering.
 ពង្រីកកម្មវិធីដោយប្រើ worker threads និង clustering។
 
 Example
+```javascript
 const cluster = require('cluster');
 if (cluster.isMaster) {
   cluster.fork();
 } else {
   console.log('Worker running');
 }
+```
 Explanation:
 កូដនេះប្រើ `cluster` ដើម្បីបង្កើត worker process។ ប្រសិនបើជា master process វាបង្កើត worker ថ្មី។
 
@@ -1703,13 +1713,17 @@ Implement real-time communication with Socket.io.
 អនុវត្តការទំនាក់ទំនងតាមពេលជាក់ស្តែងជាមួយ Socket.io។
 
 Example
+```javascript
 const io = require('socket.io')(3000);
 io.on('connection', (socket) => socket.emit('message', 'Hello!'));
+```
 Explanation:
 កូដនេះបង្កើត WebSocket server ជាមួយ `socket.io` នៅ port 3000 និងផ្ញើសារ 'Hello!' ទៅ client ដែលភ្ជាប់។
 
 Output:
+```javascript
 Hello!
+```
 Summary / សរុប:
 ជំពូកនេះបង្ហាញពីការប្រើ Socket.io សម្រាប់ការទំនាក់ទំនងតាមពេលជាក់ស្តែង។
 
@@ -1849,6 +1863,7 @@ Set up continuous integration and deployment pipelines.
 
 Example
 # Example GitHub Actions workflow
+```yml
 name: CI
 on: [push]
 jobs:
@@ -1858,6 +1873,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: npm install
       - run: npm test
+```
 Explanation:
 កូដនេះជា workflow សម្រាប់ GitHub Actions ដើម្បីធ្វើ CI ដោយដំឡើង dependencies និងសាកល្បងកម្មវិធី។
 
@@ -1874,6 +1890,7 @@ Containerize Node.js applications using Docker for consistent deployment.
 
 Example
 # Dockerfile
+```yml
 FROM node:18
 WORKDIR /app
 COPY package*.json ./
@@ -1881,11 +1898,14 @@ RUN npm install
 COPY . .
 EXPOSE 3000
 CMD ["node", "app.js"]
+```
 Explanation:
 កូដនេះជា `Dockerfile` សម្រាប់បង្កើត Docker image។ វាប្រើ Node.js version 18 ជា base image, កំណត់ working directory, ដំឡើង dependencies, ចម្លងឯកសារ, បើក port 3000, និងដំណើរការ `app.js`។
 
 Output:
+```javascript
 Docker image built and running
+```
 Summary / សរុប:
 ជំពូកនេះបង្ហាញពីការប្រើ Docker ដើម្បីបង្កើត container សម្រាប់កម្មវិធី Node.js ដើម្បីភាពងាយស្រួលក្នុងការដាក់ឱ្យប្រើប្រាស់។
 
@@ -1896,6 +1916,7 @@ Build GraphQL APIs using Node.js and Apollo Server.
 អភិវឌ្ឍ GraphQL APIs ដោយប្រើ Node.js និង Apollo Server។
 
 Example
+```javascript
 const { ApolloServer, gql } = require('apollo-server');
 const typeDefs = gql`
   type Query {
@@ -1905,6 +1926,7 @@ const typeDefs = gql`
 const resolvers = { Query: { hello: () => 'Hello, GraphQL!' } };
 const server = new ApolloServer({ typeDefs, resolvers });
 server.listen(3000).then(() => console.log('Server running'));
+```
 Explanation:
 កូដនេះបង្កើត GraphQL server ដោយប្រើ Apollo Server។ វាកំណត់ schema ជាមួយ query `hello` និង resolver ដែលឆ្លើយតបជាមួយ 'Hello, GraphQL!'។ Server ដំណើរការនៅ port 3000។
 
@@ -1920,15 +1942,19 @@ Design and implement microservices with Node.js.
 រចនា និងអនុវត្ត microservices ជាមួយ Node.js។
 
 Example
+```javascript
 const express = require('express');
 const app = express();
 app.get('/service1', (req, res) => res.json({ service: 'Service 1' }));
 app.listen(3001, () => console.log('Service 1 running'));
+```
 Explanation:
 កូដនេះបង្កើត microservice សាមញ្ញមួយដែលដំណើរការនៅ port 3001 និងឆ្លើយតបជាមួយ JSON data។ វាអាចជាផ្នែកមួយនៃប្រព័ន្ធ microservices។
 
 Output:
+```javascript
 Service 1 running
+```
 Summary / សរុប:
 ជំពូកនេះពន្យល់ពីការរចនា និងអនុវត្ត microservices ដោយប្រើ Node.js សម្រាប់ប្រព័ន្ធដែលអាចពង្រីកបាន។
 
@@ -1939,16 +1965,20 @@ Create command-line interface tools using Node.js.
 បង្កើតឧបករណ៍ command-line interface ដោយប្រើ Node.js។
 
 Example
+```javascript
 const { program } = require('commander');
 program
   .command('greet <name>')
   .action((name) => console.log(`Hello, ${name}!`));
 program.parse(process.argv);
+```
 Explanation:
 កូដនេះប្រើ `commander` ដើម្បីបង្កើត CLI tool។ ពាក្យបញ្ជា `greet` ទទួលយកឈ្មោះ និងបង្ហាញសារស្វាគមន៍។ ឧទាហរណ៍៖ `node app.js greet John`។
 
 Output:
+```javascript
 Hello, John!
+```
 Summary / សរុប:
 ជំពូកនេះបង្ហាញពីការបង្កើត CLI tools ដោយប្រើ Node.js និង `commander`។
 
@@ -1957,19 +1987,23 @@ Summary / សរុប:
 Deploy serverless functions using Node.js on platforms like AWS Lambda and Vercel.
 
 ដាក់ឱ្យប្រើប្រាស់ serverless functions ដោយប្រើ Node.js នៅលើវេទិកាដូចជា AWS Lambda និង Vercel។
-
 Example
+
+```javascript
 exports.handler = async (event) => {
   return {
     statusCode: 200,
     body: JSON.stringify({ message: 'Hello from Lambda!' })
   };
 };
+```
 Explanation:
 កូដនេះជា AWS Lambda function ដែលឆ្លើយតបជាមួយ JSON message។ វាអាចដាក់ឱ្យប្រើប្រាស់នៅលើ AWS Lambda ឬ platform serverless ផ្សេងៗ។
 
 Output:
+```javascript
 { "message": "Hello from Lambda!" }
+```
 Summary / សរុប:
 ជំពូកនេះណែនាំពីការបង្កើត និងដាក់ឱ្យប្រើប្រាស់ serverless functions ជាមួយ Node.js។
 
