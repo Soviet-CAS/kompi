@@ -68,7 +68,7 @@ Contributions are welcome. You can help Kompi by:
 To get started with this project, clone the repository:
 
 ```bash
-git clone https://github.com/soviet-casbiz/kompi.git
+git clone https://github.com/Soviet-CAS/kompi.git
 ```
 
 Then open the project folder:
